@@ -36,7 +36,7 @@ case $option in
         ;;
     2)
         # 执行流媒体解锁脚本
-        bash <(curl -sL IP.Check.Place)
+        curl -sL IP.Check.Place | bash
         ;;
     3)
         # 执行三网回程路由脚本
@@ -44,7 +44,7 @@ case $option in
         ;;
     4)
         # 执行 3x-ui 脚本
-        bash <(curl -Ls https://raw.githubusercontent.com/mhsanaei/3x-ui/master/install.sh)
+        curl -Ls https://raw.githubusercontent.com/mhsanaei/3x-ui/master/install.sh | bash
         ;;
     5)
         # 安装 1Panel
@@ -57,7 +57,7 @@ case $option in
         else
             # openEuler / 其他
             echo "安装 Docker"
-            bash <(curl -sSL https://linuxmirrors.cn/docker.sh)
+            curl -sSL https://linuxmirrors.cn/docker.sh | bash
             echo "安装 1Panel"
             curl -sSL https://resource.fit2cloud.com/1panel/package/quick_start.sh -o quick_start.sh && sh quick_start.sh
         fi
@@ -65,9 +65,9 @@ case $option in
     6)
         # 全部执行
         curl -L https://gitlab.com/spiritysdx/za/-/raw/main/ecs.sh -o ecs.sh && chmod +x ecs.sh && bash ecs.sh
-        bash <(curl -sL IP.Check.Place)
+        curl -sL IP.Check.Place | bash
         curl https://raw.githubusercontent.com/zhanghanyun/backtrace/main/install.sh -sSf | sh
-        bash <(curl -Ls https://raw.githubusercontent.com/mhsanaei/3x-ui/master/install.sh)
+        curl -Ls https://raw.githubusercontent.com/mhsanaei/3x-ui/master/install.sh | bash
         if command -v apt-get &> /dev/null; then
             curl -sSL https://resource.fit2cloud.com/1panel/package/quick_start.sh -o quick_start.sh && sudo bash quick_start.sh
         elif command -v yum &> /dev/null || command -v dnf &> /dev/null; then
@@ -77,7 +77,7 @@ case $option in
         else
             # openEuler / 其他
             echo "安装 Docker"
-            bash <(curl -sSL https://linuxmirrors.cn/docker.sh)
+            curl -sSL https://linuxmirrors.cn/docker.sh | bash
             echo "安装 1Panel"
             curl -sSL https://resource.fit2cloud.com/1panel/package/quick_start.sh -o quick_start.sh && sh quick_start.sh
         fi
